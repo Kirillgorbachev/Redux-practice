@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { incrementThunk } from "../Thunk/thunkReducer";
+import { incrementThunk,incrementTimeOut } from "../Thunk/thunkReducer";
 import { asyncDecremntAction,addCountAction,removeCountAction } from "../store/countReducer";
 import { decrement, increment, addTodo, removeTodo } from "../toolkitRedux/toolkitSlice";
+import { asyncDecrement } from "../toolkitRedux/toolkitSlice";
 
 function Counter () {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function Counter () {
     return (
         <div>
             <div>{count}</div>
-            <button onClick={() => dispatch(increment())}>Increment</button>
+            <button onClick={() => dispatch(incrementTimeOut())}>Increment</button>
             <input
                 type="number"
                 placeholder="input value"
@@ -36,7 +37,7 @@ function Counter () {
             />
             <button onClick={addValue}>Добавить</button>
             <button onClick={removeValue}>Уменьшить</button>
-            <button onClick={() => dispatch(decrement())}>Decrement</button>
+            <button onClick={() => dispatch(asyncDecrement())}>Decrement</button>
             {/* <button onClick={() => dispatch(addTodo({ id: Date.now(), title: "помыть посуду"}))}>Добавить ТУДУ</button> */}
             <button onClick={() => dispatch(addTodo(prompt()))}>Добавить ТУДУ</button>
             <button onClick={() => dispatch(removeTodo())}>Удалить ТУДУ</button>

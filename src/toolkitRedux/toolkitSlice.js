@@ -20,9 +20,11 @@ const reduxSlice = createSlice({
         },
         removeTodo(state) {
             state.todos.pop();
-        }
+        },
+        asyncDecrement() {},
+
     }
 });
 
 export default reduxSlice.reducer;
-export const {increment, decrement, addTodo, removeTodo} = reduxSlice.actions;
+export const {increment, decrement, addTodo, removeTodo, asyncDecrement} = reduxSlice.actions;

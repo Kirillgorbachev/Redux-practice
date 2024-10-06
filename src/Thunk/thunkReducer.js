@@ -1,5 +1,6 @@
 import { usersSuccessAction,usersRequestAction,usersFailureAction } from "../store/userReducer";
 import { INCREMENT } from "../store/countReducer";
+import { increment } from "../toolkitRedux/toolkitSlice";
 
 export const fetchUsersFromApi = () => {
     return async (dispatch) => {
@@ -29,8 +30,16 @@ export const incrementThunk = () => {
     return async (dispatch) => {
         delay(2000).then(() => {
             console.log("жопа");
-            dispatch({ type: INCREMENT });
+            //dispatch({ type: INCREMENT });
+            dispatch(increment());
         })
     }
+}
 
+export const incrementTimeOut = () => {
+    return (dispatch) => {
+         setTimeout( () => {
+            dispatch(increment());
+    }, 1500);
+    }
 }
