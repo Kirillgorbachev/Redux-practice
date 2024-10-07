@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,createAction } from "@reduxjs/toolkit";
 
 
 
@@ -21,10 +21,10 @@ const reduxSlice = createSlice({
         removeTodo(state) {
             state.todos.pop();
         },
-        asyncDecrement() {},
-
     }
 });
 
+export const asyncDecrement = createAction('asyncDecrement');
+
 export default reduxSlice.reducer;
-export const {increment, decrement, addTodo, removeTodo, asyncDecrement} = reduxSlice.actions;
+export const {increment, decrement, addTodo, removeTodo} = reduxSlice.actions;

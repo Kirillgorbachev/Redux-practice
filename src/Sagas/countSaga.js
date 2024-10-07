@@ -12,5 +12,5 @@ function* countWorker () {
 }
 
 export function* countWatcher() {
-    yield takeEvery(asyncDecrement.type, countWorker);
+    yield takeEvery(asyncDecrement, countWorker);
 }

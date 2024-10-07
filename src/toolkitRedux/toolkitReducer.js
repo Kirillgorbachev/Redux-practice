@@ -10,7 +10,7 @@ export const decrement = createAction("DECREMENT");
 export const addTodo = createAction("ADD_TODO");
 export const removeTodo = createAction("REMOVE_TODO");
 
-export const toolkitReducer =  createReducer (initialState, (builder) => {
+export const toolkitReducer =  createReducer (state = initialState, (builder) => {
     builder
         .addCase(increment , (state) => {
             state.count = state.count + 1
